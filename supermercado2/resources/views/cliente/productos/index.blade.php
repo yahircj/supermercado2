@@ -11,7 +11,7 @@
     :root {
       --primary-color: #3483fa;
       --secondary-color: #00a650;
-      --background: #f2f3f4;
+      --background:rgb(0, 44, 88);
       --white: #fff;
       --text-dark: #333;
       --text-light: #666;
