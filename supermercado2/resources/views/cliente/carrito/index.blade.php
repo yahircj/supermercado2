@@ -2,12 +2,143 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Carrito de Compras</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carrito de Compras</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4e73df;
+      --success: #1cc88a;
+      --danger: #e74a3b;
+      --info: #36b9cc;
+      --bg-light: #f8f9fc;
+      --text-color: #2c3e50;
+      --card-bg: #ffffff;
+      --border: #dee2e6;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-color);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--primary);
+    }
+
+    a.btn,
+    button.btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-success {
+      background: var(--success);
+      color: white;
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #6c757d;
+      color: white;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .alert {
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .alert-success {
+      background-color: #d1f0e6;
+      color: #155724;
+    }
+
+    .alert-info {
+      background-color: #d1ecf1;
+      color: #0c5460;
+    }
+
+    .alert-danger {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 1rem;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    thead {
+      background: #f1f1f1;
+    }
+
+    input[type="number"],
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 0.6rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .modal-content {
+      padding: 1.5rem;
+      border-radius: 20px;
+      background: white;
+    }
+
+    .modal-header,
+    .modal-footer {
+      border: none;
+    }
+
+    .text-end {
+      text-align: right;
+    }
+  </style>
 </head>
+
 
 <body>
     <div class="container my-4">
