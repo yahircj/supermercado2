@@ -33,7 +33,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      background-color:rgb(26, 155, 123);
+      background-color:rgb(10, 169, 175);
       backdrop-filter: blur(10px); 
       z-index: 9999;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -199,6 +199,7 @@
       }
     }
 
+    
   </style>
 </head>
 <body>
