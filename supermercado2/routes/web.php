@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductoController;
 
-Route::get('/', [ProductoController::class, 'index'])->name('productos.index');
+Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
 Route::get('/producto/{id}', [ProductoController::class, 'show'])->name('productos.show');
 
 /* Route::get('/', function () {
@@ -46,3 +46,27 @@ Route::get('/producto/{id}', [PerfilController::class, 'showProducto'])->name('p
 // Rutas para Mis Pedidos y Historial
 Route::get('/perfil/{cliente}/mis-pedidos', [PerfilController::class, 'misPedidos'])->name('mis.pedidos');
 Route::get('/perfil/{cliente}/historial-pedidos', [PerfilController::class, 'historialPedidos'])->name('historial.pedidos');
+
+
+
+
+
+
+// Mostrar formulario de login
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+
+// Procesar formulario de login
+Route::post('/login', [AuthController::class, 'login']);
+
+// Cerrar sesión
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Ruta protegida: solo accesible si el usuario está autenticado
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware('auth');
+
+// Redirección por defecto al login si no se está autenticado
+Route::get('/', function () {
+    return redirect('/login');
+});
