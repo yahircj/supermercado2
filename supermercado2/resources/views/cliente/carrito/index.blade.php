@@ -12,7 +12,7 @@
       --success: #1cc88a;
       --danger: #e74a3b;
       --info: #36b9cc;
-      --bg-light: #f8f9fc;
+      --bg-light:rgba(143, 195, 216, 0.81);;
       --text-color: #2c3e50;
       --card-bg: #ffffff;
       --border: #dee2e6;

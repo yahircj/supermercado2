@@ -8,7 +8,7 @@
     :root {
       --primary: #4e73df;
       --danger: #e74a3b;
-      --background: #f0f2f5;
+      --background:rgba(143, 195, 216, 0.81);;
       --card-bg: #ffffff;
       --text-color: #2c3e50;
       --border: #dee2e6;
