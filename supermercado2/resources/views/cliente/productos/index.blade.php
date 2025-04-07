@@ -202,58 +202,6 @@
                 height: 150px;
             }
         }
-        .discount-categories .promo-card {
-    background: linear-gradient(135deg,rgb(255, 230, 0), #fff9c4);
-    color: #000;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-.discount-categories .promo-card:hover {
-    transform: translateY(-5px);
-}
-.promo-card h5 {
-    font-weight: 300;
-    margin-bottom: 10px;
-}
-.promo-card .promo-text {
-    font-size: 1.4rem;
-    color: #d32f2f;
-}
-.promo-card small {
-    font-style: italic;
-    color: #333;
-}
-.carousel-item {
-  min-height: 10px;
-}
-
-.carousel-inner {
-  border-radius: 130px;
-  overflow: hidden;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  padding: 10px;
-}
-.navbar {
-  margin-bottom: 0 !important;
-}
-
-.promo-section {
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.container {
-  padding-top: 1rem !important;
-  padding-bottom: 1rem !important;
-}
-
-
-
     </style>
 </head>
 
@@ -277,53 +225,7 @@
         </div>
     </nav>
 
-    <!-- Carrusel de promociones -->
-    <section class="promo-section py-3">
-        <div class="container">
-        <div id="promoCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner rounded shadow-sm">
-                    <div class="carousel-item active">
-                        <div class="d-flex justify-content-around align-items-center flex-wrap px-4 py-3 bg-light rounded">
-                            <img src="images/producto_1.jpg" class="img-fluid" style="max-height: 150px;" alt="Producto 1">
-                            <div class="text-center mx-3">
-                                <span class="badge bg-success mb-2">FULL · SÚPER</span>
-                                <h3 class="fw-bold">SEMANA DE DESCUENTOS</h3>
-                                <span class="badge bg-warning text-dark fs-5 mx-2">HASTA 50% DE DESCUENTO</span>
-                                <span class="badge bg-dark text-white fs-5 mx-2">+10% DTO.*</span>
-                                <p class="text-muted mt-2 fs-6">*Aplicando el cupón. Ver más en TyC.</p>
-                            </div>
-                            <img src="images/producto_2.jpg" class="img-fluid" style="max-height: 150px;" alt="Producto 2">
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex justify-content-around align-items-center flex-wrap px-4 py-3 bg-light rounded">
-                            <img src="images/producto_3.jpg" class="img-fluid" style="max-height: 150px;" alt="Producto 3">
-                            <div class="text-center mx-3">
-                                <span class="badge bg-success mb-2">FULL · SÚPER</span>
-                                <h3 class="fw-bold">LECHE Y MANTEQUILLA CON DESCUENTO</h3>
-                                <span class="badge bg-warning text-dark fs-5 mx-2">HASTA 20% DE DESCUENTO</span>
-                                <span class="badge bg-dark text-white fs-5 mx-2">+10% DTO.*</span>
-                                <p class="text-muted mt-2 fs-6">*Compra mínima de $300.00</p>
-                            </div>
-                            <img src="images/producto_4.jpg" class="img-fluid" style="max-height: 150px;" alt="Producto 4">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Botones de control -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#promoCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
-                    <span class="visually-hidden">Anterior</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#promoCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon bg-dark rounded-circle" aria-hidden="true"></span>
-                    <span class="visually-hidden">Siguiente</span>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <div class="container py-2">
+    <div class="container py-4">
         <h1 class="text-center">Catálogo de Productos</h1>
 
         <!-- Sección informativa -->
@@ -349,38 +251,6 @@
                     <p>Solo trabajamos con marcas confiables y productos frescos.</p>
                 </div>
             </div>
-            <div class="container my-4">
-  <div class="row g-3 text-center text-white discount-categories">
-    <div class="col-md-3">
-      <div class="promo-card bg-promo">
-        <h5>Básicos del Súper</h5>
-        <p class="promo-text">HASTA <strong>30% DTO.</strong></p>
-        <small>Cereal Zucaritas</small>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="promo-card bg-promo">
-        <h5>Papel de baño</h5>
-        <p class="promo-text">HASTA <strong>15% DTO.</strong></p>
-        <small>Papel Regio Luxury</small>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="promo-card bg-promo">
-        <h5>Cuidado bucal</h5>
-        <p class="promo-text">HASTA <strong>30% DTO.</strong></p>
-        <small>Enjuague Listerine</small>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="promo-card bg-promo">
-        <h5>Frutos secos</h5>
-        <p class="promo-text">HASTA <strong>20% DTO.</strong></p>
-        <small>Botana de nueces</small>
-      </div>
-    </div>
-  </div>
-</div>
         </section>
 
         <!-- Sección de búsqueda y filtro -->
@@ -439,71 +309,22 @@
         </div>
 
         <!-- Paginación -->
-        <div class="row align-items-center my-3">
         <div class="d-flex justify-content-center">
-  {{ $productos->appends(request()->query())->links('pagination::bootstrap-5') }}
-</div>
+            {{ $productos->appends(request()->query())->links() }}
+        </div>
+    </div>
 
-<div class="footer">
-  <p>&copy; 2025 Supermercado El Buen Precio | Todos los derechos reservados</p>
-  <p>Síguenos en
-    <a href="#" style="color:rgb(0, 0, 0);" class="footer-icon">
-      <i class="bi bi-facebook"></i>
-    </a> y
-    <a href="#" style="color:rgb(0, 0, 0);" class="footer-icon">
-      <i class="bi bi-instagram"></i>
-    </a>
-  </p>
-</div>
-
-<style>
-  /* Hacemos que HTML y BODY ocupen toda la altura de la ventana */
-  html, body {
-    height: 100%;
-    margin: 0;
-  }
-
-  /* Body usa flexbox para alinear contenido */
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Asegura que el BODY ocupe toda la ventana */
-  }
-
-  /* Esta clase asegura que el contenido ocupe el espacio disponible entre el header y el footer */
-  .content {
-    flex: 1; /* Hace que el contenido ocupe todo el espacio entre el header y el footer */
-  }
-
-  /* Estilo para el footer */
-  .footer {
-    background-color: rgb(37, 164, 173); /* Fondo del footer */
-    color: #fff; /* Color del texto */
-    text-align: center;
-    padding: 2rem 0; /* Padding para el footer */
-    width: 100%; /* Asegura que el footer ocupe todo el ancho */
-    font-size: 1rem; /* Tamaño de la fuente */
-  }
-
-  .footer p {
-    margin: 0.5rem 0;
-  }
-
-  .footer a {
-    text-decoration: none;
-    margin: 0 0.5rem;
-    font-size: 1.5rem; /* Tamaño de los iconos */
-  }
-
-  .footer-icon {
-    transition: transform 0.3s ease;
-  }
-
-  .footer-icon:hover {
-    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
-  }
-</style>
-
+    <div class="footer">
+        <p>&copy; 2025 Supermercado El Buen Precio | Todos los derechos reservados</p>
+        <p>Síguenos en
+            <a href="#" style="color: var(--secondary-color);" class="footer-icon">
+                <i class="bi bi-facebook"></i>
+            </a> y
+            <a href="#" style="color: var(--secondary-color);" class="footer-icon">
+                <i class="bi bi-instagram"></i>
+            </a>
+        </p>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

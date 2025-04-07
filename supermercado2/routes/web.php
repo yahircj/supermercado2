@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReabastecimientoController;
+
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductoController;
@@ -42,6 +44,8 @@ Route::get('/perfil/historial', [PerfilController::class, 'historial'])->name('p
 Route::get('/perfil/pedido/{id}', [PerfilController::class, 'showPedido'])->name('perfil.showPedido');
 // En web.php
 Route::get('/producto/{id}', [PerfilController::class, 'showProducto'])->name('productos.show');
+//PARA PEDIDOS DE BAJO STOCK
+Route::get('/reabastecimiento', [ReabastecimientoController::class, 'index'])->name('reabastecimiento.index');
 
 // Rutas para Mis Pedidos y Historial
 Route::get('/perfil/{cliente}/mis-pedidos', [PerfilController::class, 'misPedidos'])->name('mis.pedidos');
