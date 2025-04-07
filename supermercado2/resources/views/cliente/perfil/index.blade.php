@@ -119,6 +119,17 @@
       <a href="{{ route('perfil.edit', $cliente->id) }}" class="btn btn-primary btn-custom">
         <i class="bi bi-pencil-fill"></i> Editar Perfil
       </a>
+
+
+      <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+        @csrf
+        <button type="submit" class="btn btn-danger btn-custom">
+          <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+        </button>
+      </form>
+
+
+
     </div>
   </div>
 </div>

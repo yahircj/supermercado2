@@ -24,15 +24,15 @@ class PedidoController extends Controller
             'codigo_seguridad' => 'required|string|max:4',
             'nombre_tarjeta' => 'required|string|max:100',
         ]);
-
+    
         // Obtén el carrito de la sesión
         $carrito = session()->get('carrito', []);
-
+    
         // Calcular el total del pedido
         $total = array_reduce($carrito, function ($carry, $item) {
             return $carry + ($item['precio'] * $item['cantidad']);
         }, 0);
-
+    
         // Crear el pedido
         $pedido = Pedido::create([
             'cliente_id' => 1, // Asegúrate de usar el cliente correcto
@@ -44,11 +44,17 @@ class PedidoController extends Controller
             'codigo_postal' => $request->codigo_postal,
             'total' => $total,
         ]);
-
+    
+        // Asociar productos al pedido
+        foreach ($carrito as $producto_id => $item) {
+            $pedido->productos()->attach($producto_id, ['cantidad' => $item['cantidad']]);
+        }
+    
         // Limpiar el carrito después de realizar el pedido
         session()->forget('carrito');
-
+    
         // Redirigir con un mensaje de éxito
         return redirect()->route('carrito.index')->with('success', 'Pedido realizado con éxito.');
     }
+    
 }

@@ -25,6 +25,7 @@ class ProductoController extends Controller
         return view('cliente.productos.index', compact('productos', 'categorias'));
     }
     
+    
 
     public function show($id)
     {
