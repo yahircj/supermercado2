@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color:rgba(143, 195, 216, 0.81);;
+            background-color: rgba(143, 195, 216, 0.81);
             margin: 0;
             padding: 0;
             display: flex;
@@ -54,6 +54,13 @@
             font-size: 14px;
             margin-top: 5px;
         }
+        .total {
+            text-align: right;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -66,10 +73,16 @@
                     Producto: {{ $producto->nombre }}
                 </a>
                 <div class="precio">
-                    Precio: ${{ $producto->precio }}
+                    Precio: ${{ number_format($producto->precio, 2) }} <br>
+                    Cantidad: {{ $producto->pivot->cantidad }} <br>
+                    Subtotal: ${{ number_format($producto->precio * $producto->pivot->cantidad, 2) }}
                 </div>
             </div>
         @endforeach
+
+        <div class="total">
+            Total del Pedido: ${{ number_format($pedido->total, 2) }}
+        </div>
     </div>
 </body>
 </html>
