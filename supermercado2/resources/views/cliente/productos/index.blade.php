@@ -444,20 +444,66 @@
   {{ $productos->appends(request()->query())->links('pagination::bootstrap-5') }}
 </div>
 
+<div class="footer">
+  <p>&copy; 2025 Supermercado El Buen Precio | Todos los derechos reservados</p>
+  <p>Síguenos en
+    <a href="#" style="color:rgb(0, 0, 0);" class="footer-icon">
+      <i class="bi bi-facebook"></i>
+    </a> y
+    <a href="#" style="color:rgb(0, 0, 0);" class="footer-icon">
+      <i class="bi bi-instagram"></i>
+    </a>
+  </p>
+</div>
 
-    </>
+<style>
+  /* Hacemos que HTML y BODY ocupen toda la altura de la ventana */
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
 
-    <div class="footer">
-        <p>&copy; 2025 Supermercado El Buen Precio | Todos los derechos reservados</p>
-        <p>Síguenos en
-            <a href="#" style="color: var(--secondary-color);" class="footer-icon">
-                <i class="bi bi-facebook"></i>
-            </a> y
-            <a href="#" style="color: var(--secondary-color);" class="footer-icon">
-                <i class="bi bi-instagram"></i>
-            </a>
-        </p>
-    </div>
+  /* Body usa flexbox para alinear contenido */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el BODY ocupe toda la ventana */
+  }
+
+  /* Esta clase asegura que el contenido ocupe el espacio disponible entre el header y el footer */
+  .content {
+    flex: 1; /* Hace que el contenido ocupe todo el espacio entre el header y el footer */
+  }
+
+  /* Estilo para el footer */
+  .footer {
+    background-color: rgb(37, 164, 173); /* Fondo del footer */
+    color: #fff; /* Color del texto */
+    text-align: center;
+    padding: 2rem 0; /* Padding para el footer */
+    width: 100%; /* Asegura que el footer ocupe todo el ancho */
+    font-size: 1rem; /* Tamaño de la fuente */
+  }
+
+  .footer p {
+    margin: 0.5rem 0;
+  }
+
+  .footer a {
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-size: 1.5rem; /* Tamaño de los iconos */
+  }
+
+  .footer-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .footer-icon:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+  }
+</style>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
