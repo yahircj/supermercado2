@@ -2,33 +2,33 @@
 
 namespace App\Models;
 
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    /** @use HasFactory<\Database\Factories\UserFactory> */
+    use HasFactory, Notifiable, HasRoles;
 
     /**
-     * Los atributos que son asignables en masa.
+     * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'name',
         'email',
         'password',
-        'direccion',
-        'telefono',
-        'nombres',
-        'apellidos',
+        'phone'
     ];
 
     /**
-     * Los atributos que deben ser ocultados para los arreglos.
+     * The attributes that should be hidden for serialization.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $hidden = [
         'password',
@@ -36,22 +36,57 @@ class User extends Authenticatable
     ];
 
     /**
-     * Los atributos que deben ser convertidos a tipos nativos.
+     * Get the attributes that should be cast.
      *
-     * @var array<int, string>
+     * @return array<string, string>
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
-    /**
-     * Setea la contraseña de forma segura.
-     *
-     * @param  string  $value
-     * @return void
-     */
-    public function setPasswordAttribute($value)
+    protected function casts(): array
     {
-        $this->attributes['password'] = Hash::make($value);
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
+
+    // / Relaciones
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
+
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
+    }
+
+    public function managedDepartments()
+    {
+        return $this->hasMany(DepartmentManager::class);
+    }
+
+    public function employedDepartments()
+    {
+        return $this->hasMany(DepartmentEmployee::class);
+    }
+
+    public function assignedRestockTasks()
+    {
+        return $this->hasMany(RestockTask::class, 'assigned_to');
+    }
+
+    public function createdRestockTasks()
+    {
+        return $this->hasMany(RestockTask::class, 'assigned_by');
+    }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }
+
