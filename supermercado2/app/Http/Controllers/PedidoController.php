@@ -35,7 +35,7 @@ class PedidoController extends Controller
     
         // Crear el pedido
         $pedido = Pedido::create([
-            'cliente_id' => 1, // Asegúrate de usar el cliente correcto
+            'cliente_id' => 1, // Usamos el cliente fijo con ID 1
             'direccion' => $request->direccion,
             'correo' => $request->correo,
             'telefono' => $request->telefono,
@@ -45,9 +45,16 @@ class PedidoController extends Controller
             'total' => $total,
         ]);
     
-        // Asociar productos al pedido
+        // Asociar productos al pedido y restar stock
         foreach ($carrito as $producto_id => $item) {
+            // Asociamos el producto con la cantidad en la tabla pivote
             $pedido->productos()->attach($producto_id, ['cantidad' => $item['cantidad']]);
+            
+            // Restar el stock del producto
+            $producto = \App\Models\Producto::find($producto_id);
+            if ($producto) {
+                $producto->decrement('stock', $item['cantidad']);
+            }
         }
     
         // Limpiar el carrito después de realizar el pedido

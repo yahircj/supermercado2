@@ -15,14 +15,12 @@
       --text-dark: #333;
       --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       --radius: 12px;
-      --image-size: 90%;
     }
     body {
       background-color: var(--background);
       font-family: 'Segoe UI', sans-serif;
       color: var(--text-dark);
       margin-top: 60px;
-      animation: fadeIn 1s ease-in-out;
     }
     .container {
       background-color: var(--white);
@@ -31,7 +29,6 @@
       box-shadow: var(--shadow);
       margin-top: 80px;
       max-width: 1200px;
-      animation: slideIn 0.5s ease-in-out;
     }
     .btn-custom {
       background-color: var(--primary-color);
@@ -45,10 +42,9 @@
       transform: translateY(-2px);
     }
     .img-fluid {
-      max-width: var(--image-size);
+      max-width: 100%;
       border-radius: var(--radius);
       transition: transform 0.3s ease;
-      animation: zoomIn 0.5s ease-in-out;
     }
     .img-fluid:hover {
       transform: scale(1.05);
@@ -85,21 +81,6 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    @keyframes slideIn {
-      0% { transform: translateY(20px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes zoomIn {
-      0% { transform: scale(0.9); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
   </style>
 </head>
 <body>
@@ -109,7 +90,7 @@
     </a>
 
     <div class="row g-4">
-      <div class="col-md-6 d-flex justify-content-center">
+      <div class="col-md-6">
         <img src="{{ asset('images/' . $producto->imagen) }}" alt="{{ $producto->nombre }}" class="img-fluid">
       </div>
       <div class="col-md-6">
