@@ -11,18 +11,18 @@ class AuthController extends Controller
 {
     // Muestra el formulario de inicio de sesión
     public function showLoginForm()
-{
-    if (Auth::check()) {
-        return redirect()->intended('/productos'); // Redirige si ya está logueado
+    {
+        if (Auth::check()) {
+            return redirect()->intended('/productos'); // Redirige si ya está logueado
+        }
+        return view('login');
     }
-    return view('login');
-}
 
     // Procesa las credenciales de login
     public function login(Request $request)
     {
         $request->validate([
-            'email' => 'required|email',
+            'email'    => 'required|email',
             'password' => 'required'
         ]);
 

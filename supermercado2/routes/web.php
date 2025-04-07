@@ -49,16 +49,16 @@ Route::get('/perfil/{cliente}/historial-pedidos', [PerfilController::class, 'his
 
 
 
+use App\Http\Controllers\RegistrationController;
+// Registro
+Route::get('/register', [RegistrationController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [RegistrationController::class, 'register']);
 
-
-
-// Mostrar formulario de login
+// Login
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-
-// Procesar formulario de login
 Route::post('/login', [AuthController::class, 'login']);
 
-// Cerrar sesión
+// Logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Ruta protegida: solo accesible si el usuario está autenticado

@@ -15,7 +15,7 @@
             </div>
         @endif
 
-        <form method="POST" action="/login">
+        <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="mb-3">
                 <label for="email" class="form-label">Correo electrónico</label>
@@ -28,7 +28,9 @@
             </div>
 
             <button type="submit" class="btn btn-primary w-100">Iniciar sesión</button>
+            <p class="mt-3 text-center">¿No tienes cuenta? <a href="{{ route('register') }}">Registrarse</a></p>
         </form>
     </div>
 </body>
 </html>
+
