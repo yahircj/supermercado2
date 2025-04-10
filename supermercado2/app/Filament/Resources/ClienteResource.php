@@ -61,10 +61,30 @@ class ClienteResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('tipo_cliente')
+                    ->options([
+                        'frecuente' => 'Clientes frecuentes',
+                        'nuevo' => 'Clientes nuevos',
+                    ])
+                    ->query(function (Builder $query, array $data) {
+                        if ($data['value'] === 'frecuente') {
+                            $query->has('pedidos', '>=', 3);
+                        } elseif ($data['value'] === 'nuevo') {
+                            $query->where('created_at', '>=', now()->subMonth());
+                        }
+                    }),
+                
+                Tables\Filters\Filter::make('con_pedidos')
+                    ->label('Solo con pedidos')
+                    ->query(fn (Builder $query) => $query->has('pedidos')),
+                    
+                // Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+                // Tables\Actions\RestoreAction::make(), // Para soft deletes
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

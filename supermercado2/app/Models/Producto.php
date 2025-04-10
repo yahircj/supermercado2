@@ -20,6 +20,12 @@ class Producto extends Model
     protected $fillable = [
         'nombre', 'descripcion', 'precio', 'stock', 'imagen', 'categoria', 'stock_minimo',
     ];
+
+    // Agrega esta relación al modelo existente
+    public function proveedor()
+    {
+        return $this->belongsTo(Proveedor::class);
+    }
 }
 
 

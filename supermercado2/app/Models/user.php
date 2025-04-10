@@ -7,10 +7,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\SoftDeletes; // En la parte superior
+
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    // use SoftDeletes;
 
     /**
      * Los atributos que son asignables en masa.

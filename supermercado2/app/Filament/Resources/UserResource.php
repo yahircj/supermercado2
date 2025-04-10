@@ -76,11 +76,44 @@ class UserResource extends Resource
                     ->searchable(),
             ])
             ->filters([
-                //
+                Tables\Filters\Filter::make('verificados')
+                    ->label('Correo verificado')
+                    ->query(fn (Builder $query) => $query->whereNotNull('email_verified_at')),
+                
+                Tables\Filters\Filter::make('rango_fechas')
+                    ->form([
+                        Forms\Components\DatePicker::make('desde'),
+                        Forms\Components\DatePicker::make('hasta'),
+                    ])
+                    ->query(function (Builder $query, array $data) {
+                        $query
+                            ->when($data['desde'],
+                                fn ($q) => $q->whereDate('created_at', '>=', $data['desde']))
+                            ->when($data['hasta'],
+                                fn ($q) => $q->whereDate('created_at', '<=', $data['hasta']));
+                    }),
+                
+                Tables\Filters\SelectFilter::make('rol')
+                    ->options([
+                        'admin' => 'Administradores',
+                        'user' => 'Usuarios estándar',
+                    ])
+                    ->query(function (Builder $query, array $data) {
+                        // Adaptar según tu sistema de roles
+                        if ($data['value'] === 'admin') {
+                            $query->where('is_admin', true);
+                        }
+                    }),
+                    
+                // Tables\Filters\TrashedFilter::make()
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+                // Tables\Actions\RestoreAction::make(), // Para soft deletes
             ])
+
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

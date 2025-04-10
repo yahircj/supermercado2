@@ -14,7 +14,10 @@ class Pedido extends Model
     protected $fillable = [
         'cliente_id', 'direccion', 'correo', 'telefono', 'nombres', 'apellidos', 'codigo_postal', 'total', 'estatus'
     ];
-
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class);
+    }
     // Relación con productos
     public function productos()
     {
