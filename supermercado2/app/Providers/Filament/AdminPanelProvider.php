@@ -18,6 +18,10 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use BezhanSalleh\FilamentLanguageSwitch\LanguageSwitch;
+use App\Filament\Widgets\VentasStatsWidget;
+use App\Filament\Widgets\StockCriticoWidget;
+use App\Filament\Widgets\UltimosPedidosWidget;
+use App\Filament\Widgets\PedidosChartWidget;
 
 
 class AdminPanelProvider extends PanelProvider
@@ -41,8 +45,12 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                // Widgets\FilamentInfoWidget::class,
+
+                VentasStatsWidget::class,
+                UltimosPedidosWidget::class,
+                PedidosChartWidget::class,
+                StockCriticoWidget::class,
+
             ])
             ->middleware([
                 EncryptCookies::class,
